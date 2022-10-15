@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "darkarmycluster-baa1"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "darkarmycluster-baa1"
+  template:
+    metadata:
+      labels:
+        app: "darkarmycluster-baa1"
+    spec:
+      containers:
+        - name: "darkarmycluster-baa1"
+          image: "armyclusterregistry.azurecr.io/darkarmycluster"
+          ports:
+          - containerPort: 80
